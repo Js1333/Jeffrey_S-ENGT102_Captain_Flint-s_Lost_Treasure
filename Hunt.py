@@ -1,4 +1,4 @@
-#My dad works at a bank and specializes in python so he helped me so it might not be what we learned in class
+#My dad specializes in python so he helped me so it might not be what we learned in class
 
 import csv
 import os
