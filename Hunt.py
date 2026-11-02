@@ -19,7 +19,7 @@ FAILURE_THRESHOLD = 10.0
 # Paths are built from the folder that holds hunt.py, so the program works
 # no matter which folder it is launched from (terminal, IDE, double-click).
 PROGRAM_DIR = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_MISSION_NAME = "mission_training.csv"
+DEFAULT_MISSION_NAME = "mission_recovery.csv"
 PLOT_FILE = os.path.join(PROGRAM_DIR, "plots", "mission_plot.png")
 
 # SRCH-07: search effects as (hull change, energy change, clue change).
