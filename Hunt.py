@@ -6,7 +6,7 @@ import sys
 
 import matplotlib.pyplot as plt
 
-# ---------------------------------------------------------------- constants
+
 START_X = 0
 START_Y = 0
 START_DEPTH_M = 2.0
@@ -37,7 +37,6 @@ TREASURE = "Treasure"
 VALID_CATEGORIES = list(SEARCH_EFFECTS.keys()) + [TREASURE]
 
 
-# ------------------------------------------------------------ data loading
 def find_mission_file(name=DEFAULT_MISSION_NAME):
     """Return the first existing path for the mission file.
 
@@ -55,7 +54,6 @@ def find_mission_file(name=DEFAULT_MISSION_NAME):
     return name
 
 
-# ------------------------------------------------------------ data loading
 def load_mission_file(filename):
     """SYS-12: load the mission CSV into a 2D list mission[y][x].
 
@@ -145,7 +143,6 @@ def check_start_and_treasure(records):
               f"expected exactly 1 (DATA-10).")
 
 
-# ------------------------------------------------------------ input / nav
 def get_direction():
     """NAV-01 / NAV-02: prompt until one of the four full words is entered."""
     while True:
@@ -184,7 +181,6 @@ def ask_yes_no(question):
         print("Invalid input. Please type yes or no.")
 
 
-# ------------------------------------------------------------ calculations
 def calculate_movement(destination, previous_depth):
     """STAT-01: movement losses for entering the destination record.
 
@@ -217,7 +213,6 @@ def apply_move(rover, destination, new_x, new_y):
     return hull_loss, energy_loss
 
 
-# ------------------------------------------------------------ search
 def process_search(rover, record):
     """Handle a search at the current location (SRCH-04 to SRCH-09).
 
@@ -249,7 +244,7 @@ def process_search(rover, record):
     return "searched"
 
 
-# ------------------------------------------------------------ mission checks
+
 def check_failure(energy, hull):
     """SYS-07: failure at or below the 10.0 threshold (<=, not <)."""
     return energy <= FAILURE_THRESHOLD or hull <= FAILURE_THRESHOLD
@@ -262,7 +257,6 @@ def check_clue_success(clue_points, energy, hull):
             and hull > FAILURE_THRESHOLD)
 
 
-# ------------------------------------------------------------ plotting
 def create_plot():
     """OUT-05/06: one figure, energy on the left axis, hull on the right.
 
@@ -312,7 +306,6 @@ def save_final_plot(fig):
     print(f"Final plot saved to {PLOT_FILE}")
 
 
-# ------------------------------------------------------------ display
 def display_start(filename, rover, num_rows, num_columns):
     """OUT-01: mission file, start position, status and clue target."""
     print("=== Captain Flint Recovery Mission ===")
@@ -354,7 +347,6 @@ def display_final_summary(rover, outcome):
     print(f"Locations searched: {len(rover['searched'])}")
 
 
-# ------------------------------------------------------------ main program
 def new_rover():
     """Starting state and history lists (Rover State Model)."""
     return {"x": START_X, "y": START_Y, "depth": START_DEPTH_M,
